@@ -6,19 +6,26 @@ on:
 
 jobs:
   test-python:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       - name: execute script
-        run: python --version > version.txt
+        run: |
+          date > version.txt
+          python --version >> version.txt
 
       - name: commit
         run: |
           git config user.email "action@github.com"
-          git config user.name "bot"
+          git config user.name "hoge"
           git add .
           git commit -m "add"
           git push
