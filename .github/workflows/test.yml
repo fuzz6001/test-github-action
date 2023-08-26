@@ -6,6 +6,8 @@ on:
 
 jobs:
   test-python:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +22,8 @@ jobs:
 
       - name: commit
         run: |
-          git config user.email "fuzz6001@fuckin.rash.jp" # #action@github.com"
-          git config user.name "fz" # "hoge"
+          git config user.email "action@github.com"
+          git config user.name "hoge"
           git add .
           git commit -m "add"
           git push
