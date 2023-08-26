@@ -11,4 +11,11 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - run: python --version > version.txt
+      - name: execute script
+        run: python --version > version.txt
+
+      - name: commit
+        run: |
+          git add .
+          git commit -m "add"
+          git push
