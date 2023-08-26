@@ -18,7 +18,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: execute script
-        run: python --version > version.txt
+        run: |
+          date > version.txt
+          python --version >> version.txt
 
       - name: commit
         run: |
