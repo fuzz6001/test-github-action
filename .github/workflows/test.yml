@@ -17,7 +17,7 @@ jobs:
       - name: commit
         run: |
           git config user.email "action@github.com"
-          # git config user.name "Your Name"
+          git config user.name "bot"
           git add .
           git commit -m "add"
           git push
